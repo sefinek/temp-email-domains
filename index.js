@@ -43,5 +43,5 @@ const fetchDomains = async url => {
 	console.log('\nDomain List Statistics\n================================');
 	console.log(`Total domains collected : ${totalCollected}`);
 	console.log(`Unique domains          : ${totalUnique}`);
-	console.log(`Duplicates removed      : ${totalCollected - totalUnique}\n`);
+	console.log(`Duplicates removed      : ${totalCollected - totalUnique}`);
 })();
