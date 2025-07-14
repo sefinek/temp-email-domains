@@ -8,7 +8,8 @@ const sources = [
 	'https://raw.githubusercontent.com/wesbos/burner-email-providers/master/emails.txt',
 ];
 
-const isValidDomain = domain => (/^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(domain);
+const isValidDomain = domain =>
+	(/^(?!-)(?!.*\.\.)(?!.*\.-)(?!.*-\.)[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/).test(domain);
 
 const fetchDomains = async url => {
 	try {
@@ -41,5 +42,5 @@ const fetchDomains = async url => {
 	console.log(`Unique domains          : ${totalUnique}`);
 	console.log(`Duplicates removed      : ${totalRemoved}\n`);
 
-	await fs.writeFile('blacklist.txt', [...uniqueDomains].join('\n'));
+	await fs.writeFile('blacklist.txt', [...uniqueDomains].sort().join('\n'));
 })();
