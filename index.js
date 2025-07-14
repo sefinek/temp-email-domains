@@ -12,6 +12,8 @@ const isValidDomain = domain =>
 	(/^(?!-)(?!.*\.\.)(?!.*\.-)(?!.*-\.)[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/).test(domain);
 
 const fetchDomains = async url => {
+	console.log('Downloading...', url);
+
 	try {
 		const response = await axios.get(url);
 		return response.data
@@ -34,13 +36,12 @@ const fetchDomains = async url => {
 		for (const domain of domains) uniqueDomains.add(domain);
 	}
 
+	console.log('Writing files...');
 	const totalUnique = uniqueDomains.size;
-	const totalRemoved = totalCollected - totalUnique;
+	await fs.writeFile('blacklist.txt', [...uniqueDomains].sort().join('\n'));
 
-	console.log('\nDomain List Statistics:\n----------------------');
+	console.log('\nDomain List Statistics\n================================');
 	console.log(`Total domains collected : ${totalCollected}`);
 	console.log(`Unique domains          : ${totalUnique}`);
-	console.log(`Duplicates removed      : ${totalRemoved}\n`);
-
-	await fs.writeFile('blacklist.txt', [...uniqueDomains].sort().join('\n'));
+	console.log(`Duplicates removed      : ${totalCollected - totalUnique}\n`);
 })();
