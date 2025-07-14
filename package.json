@@ -1,0 +1,26 @@
+{
+  "name": "temp-email-domains",
+  "version": "1.0.0",
+  "homepage": "https://github.com/sefinek/temp-email-domains#readme",
+  "bugs": {
+    "url": "https://github.com/sefinek/temp-email-domains/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sefinek/temp-email-domains.git"
+  },
+  "license": "MIT",
+  "author": "Sefinek <contact@sefinek.net> (https://sefinek.net)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "up": "ncu -u && npm install && npm update && npm audit fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "globals": "^16.3.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0"
+  }
+}
