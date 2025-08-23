@@ -15,13 +15,14 @@ const fetchDomains = async url => {
 	console.log('Downloading...', url);
 
 	try {
-		const response = await axios.get(url);
-		return response.data
+		const res = await axios.get(url);
+
+		return res.data
 			.split('\n')
 			.map(line => line.trim().toLowerCase())
 			.filter(line => line && !line.startsWith('#') && isValidDomain(line));
 	} catch (err) {
-		console.error(`Failed to fetch ${url}: ${err.message}`);
+		console.error(`Failed to fetch ${url}:`, err.message);
 		return [];
 	}
 };
