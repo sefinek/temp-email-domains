@@ -17,7 +17,7 @@
     "up": "ncu -u && npm install && npm update && npm audit fix"
   },
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
+    "@eslint/js": "^9.33.0",
     "globals": "^16.3.0"
   },
   "dependencies": {
