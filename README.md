@@ -12,5 +12,5 @@ https://raw.githubusercontent.com/sefinek/temp-email-domains/main/blacklist.txt
 - [disposable/disposable-email-domains](https://raw.githubusercontent.com/disposable/disposable-email-domains/master/domains.txt)
 - [wesbos/burner-email-providers](https://raw.githubusercontent.com/wesbos/burner-email-providers/master/emails.txt)
 
-## License
-MIT
+## MIT License
+Copyright © 2025-2026 [Sefinek](https://sefinek.net)
